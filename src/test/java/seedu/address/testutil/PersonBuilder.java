@@ -70,6 +70,11 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
+        return this;
+    }
+
     /**
      * Sets the {@code Address} of the {@code Person} that we are building.
      */
