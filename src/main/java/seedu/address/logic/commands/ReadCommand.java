@@ -19,6 +19,7 @@ public class ReadCommand extends Command {
 
     public static final String COMMAND_WORD = "read";
 
+
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Reads the person identified by the index number used in the displayed person list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"

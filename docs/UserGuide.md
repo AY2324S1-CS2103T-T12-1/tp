@@ -3,12 +3,51 @@ layout: page
 title: User Guide
 ---
 
-npc_track is a desktop app for managing contacts, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, npc_track can get your contact management tasks done faster than traditional GUI apps.
+# Welcome to `Npc_track`
 
-* Table of Contents
+## Tracking the details of your students is on the cusp of your fingertips!
+
+`npc_track` is a desktop application curtailed for the humble teaching assistants of SoC via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, `npc_track` can get your contact management tasks done faster than traditional GUI apps.
+
+Here’s an overview of how `npc_track` can help you streamline your student management process:
+- Store, delete and edit information about your students!
+- Track the progress of your students
+- ...
+
+On top of these functionalities, we believe that student management should be extremely efficient. `npc_track` is optimized for use via the familiar command line interface (CLI) for linux / fans of terminal applications as well as the benefits of an appealing user interface for TA’s more inclined to them!
+
+`npc_track` is for all TA’s, and is adaptable for their management and organisational styles!
+
+---
+
+## Table of Contents
 {:toc}
+- [Features](#features)
+    - [Viewing Help](#help) `help`
+    - [Listing All Students](#list) `list`
+    - [Adding a Student](#add) `add`
+    - [Deleting a Student](#delete) `delete`
+    - [Exiting a Student](#exit)
 
---------------------------------------------------------------------------------------------------------------------
+- [FAQ](#FAQ)
+- [Known Issues](#issues)
+- [Command Summary](#summary)
+
+---
+
+## How can this guide help me?
+
+**First time user?** Welcome and thank you for using our app! Check out the installation guide here!
+
+Once you’re done setting up, check out the [features](#features) of `npc_track` to manage the dossier of your students!
+
+If you are an intermediary user and are confused or unclear of some of our features, check out the [FAQ](#FAQ) as well!
+
+Encountered some bugs or unexpected events when using the app? Maybe [Known Issues](#issues) will give you some guidance on what the known bugs (and their status) are!
+
+A seasoned user (but you still need help on memorizing commands)? Drop by in [Command summary](#summary)!
+
+---
 
 ## Quick start
 
@@ -25,22 +64,22 @@ npc_track is a desktop app for managing contacts, optimized for use via a Comman
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * `list` : Lists all contacts.
+    * `list` : Lists all contacts.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+    * `delete 3` : Deletes the 3rd contact shown in the current list.
 
-   * `clear` : Deletes all contacts.
+    * `clear` : Deletes all contacts.
 
-   * `exit` : Exits the app.
+    * `exit` : Exits the app.
 
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
-
+<a name="features"></a>
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Notes about the command format:**<br>
@@ -64,6 +103,7 @@ npc_track is a desktop app for managing contacts, optimized for use via a Comman
 </div>
 
 ### Viewing help : `help`
+<a name="help"></a>
 
 Shows a message explaning how to access the help page.
 
@@ -87,12 +127,14 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 
 ### Listing all persons : `list`
+<a name="list"></a>
 
 Shows a list of all persons in the address book.
 
 Format: `list`
 
 ### Editing a person : `edit`
+<a name="edit"></a>
 
 Edits an existing person in the address book.
 
@@ -103,7 +145,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+  specifying any tags after it.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -128,6 +170,7 @@ Examples:
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting a person : `delete`
+<a name="delete"></a>
 
 Deletes the specified person from the address book.
 
@@ -148,6 +191,7 @@ Clears all entries from the address book.
 Format: `clear`
 
 ### Exiting the program : `exit`
+<a name="exit"></a>
 
 Exits the program.
 
@@ -172,19 +216,21 @@ _Details coming soon ..._
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
-
+<a name="FAQ"></a>
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
+<a name="issues"></a>
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
+<a name="summary"></a>
 
 Action | Format, Examples
 --------|------------------
