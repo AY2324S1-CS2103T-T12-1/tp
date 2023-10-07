@@ -11,18 +11,17 @@ management tasks done faster than traditional GUI apps.
 
 
 Given below are my contributions to the project:
-
-**- New Features**:
-(Coming soon)
-**- Code contributed**:
-(Coming soon)
-**- Project Management**:
-(Coming soon)
--**Enhancements to existing features**:
-- Made a mockup GUI
--**Documentation**
-(coming soon)
+- **New Feature**
+(to be added)
+- **Code contributed**
+(to be added)
+- **Project management**
+	- Managed release `v1.1` as a practice on Github
+- **Enhancements to existing features:**
+	- Made the Ui mockup
+-**Documentation:**
+(to be added)
 -**Community**
-(coming soon)
+(To be added)
 -**Tools**
-(coming soon)
+(to be added)

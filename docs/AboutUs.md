@@ -5,55 +5,53 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
-### John Doe
+### choonyan02
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/choonyan02.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](https://github.com/choonyan02)]
+[[portfolio](team/choonyan02.md)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Code Quality, Testing and Integration
 
-### Jean Doe
+### et-irl
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/et-irl.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/et-irl)]
+[[portfolio](team/et-irl.md)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Code Quality, Testing and Integration
+
+### lsyurea
+
+<img src="images/lsyurea.png" width="200px">
+
+[[github](http://github.com/lsyurea)] [[portfolio](team/lsyurea.md)]
+
+* Role: Developer
+* Responsibilities: Code Quality, Testing and Integration
+
+### proto-aiken-13
+
+<img src="images/proto-aiken-13.png" width="200px">
+
+[[github](http://github.com/proto-aiken-13)]
+[[portfolio](team/proto-aiken-13.md)]
+
+* Role: Developer
+* Responsibilities: Code Quality, Testing and Integration
+
+### vanessamae23
+
+<img src="images/vanessamae23.png" width="200px">
+
+[[github](http://github.com/vanessamae23)]
+[[portfolio](team/vanessamae23.md)]
+
+* Role: Developer
+* Responsibilities: Code Quality, Testing and Integration
