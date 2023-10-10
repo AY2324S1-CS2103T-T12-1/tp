@@ -27,7 +27,7 @@ On top of these functionalities, we believe that student management should be ex
     - [Listing All Students](#list) `list`
     - [Adding a Student](#add) `add`
     - [Deleting a Student](#delete) `delete`
-    - [Exiting a Student](#exit)
+    - [Exiting the Program](#exit)
 
 - [FAQ](#FAQ)
 - [Known Issues](#issues)
@@ -107,21 +107,22 @@ Examples:
 ### Listing all students : `list`
 <a name="list"></a>
 
-Shows a list of all students
+Shows a list of all students.
 
 Format: `list`
 
 ### Editing a person : `edit`
 <a name="edit"></a>
 
-Edits an existing student .
+Edits an existing student.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL]`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]…`
 
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email telegramHandle of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 3 t/ c/Loves cake` Clears all existing tags of the 3rd person and replaces their tags with "Loves cake".
 
 
 ### Deleting a student : `delete`
@@ -176,3 +177,10 @@ _Details coming soon ..._
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]… [c/COMMENT]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague c/Owes a cookie`
+**Clear** | `clear​`
+**Delete** | `delete INDEX​` <br> e.g., `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]…​` <br> e.g., `n/New Name t/`
+**Exit** | `exit​`
+**Find** | `find KEYWORD [MORE_KEYWORDS]​` e.g., `find James Jake`
+**Help** | `help​`
+**List** | `list​`
