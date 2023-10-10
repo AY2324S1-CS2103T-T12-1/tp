@@ -16,7 +16,7 @@ public class PersonBuilder {
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
-    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_TELEGRAM = "amyTelegram";
 
     private Name name;
     private Phone phone;
@@ -31,7 +31,7 @@ public class PersonBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        telegramHandle = new TelegramHandle(DEFAULT_ADDRESS);
+        telegramHandle = new TelegramHandle(DEFAULT_TELEGRAM);
         tags = new HashSet<>();
     }
 
@@ -65,8 +65,8 @@ public class PersonBuilder {
     /**
      * Sets the {@code Address} of the {@code Person} that we are building.
      */
-    public PersonBuilder withAddress(String address) {
-        this.telegramHandle = new TelegramHandle(address);
+    public PersonBuilder withTelegram(String telegram) {
+        this.telegramHandle = new TelegramHandle(telegram);
         return this;
     }
 

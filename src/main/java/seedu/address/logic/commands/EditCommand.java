@@ -231,7 +231,7 @@ public class EditCommand extends Command {
                     .add("name", name)
                     .add("phone", phone)
                     .add("email", email)
-                    .add("telegram handle", telegramHandle)
+                    .add("telegram", telegramHandle)
                     .add("tags", tags)
                     .toString();
         }

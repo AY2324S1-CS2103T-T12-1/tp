@@ -15,31 +15,33 @@ public class TelegramHandleTest {
 
     @Test
     public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        assertThrows(IllegalArgumentException.class, () -> new TelegramHandle(invalidAddress));
+        String invalidTelegramHandle = "";
+        assertThrows(IllegalArgumentException.class, () -> new TelegramHandle(invalidTelegramHandle));
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidTelegramHandle() {
         // null address
         assertThrows(NullPointerException.class, () -> TelegramHandle.isValidTelegramHandle(null));
 
         // invalid addresses
         assertFalse(TelegramHandle.isValidTelegramHandle("")); // empty string
         assertFalse(TelegramHandle.isValidTelegramHandle(" ")); // spaces only
+        assertFalse(TelegramHandle.isValidTelegramHandle("1234")); // less than 5
+        assertFalse(TelegramHandle.isValidTelegramHandle("%&@#&@")); // contains invalid symbols
 
         // valid addresses
-        assertTrue(TelegramHandle.isValidTelegramHandle("Blk 456, Den Road, #01-355"));
-        assertTrue(TelegramHandle.isValidTelegramHandle("-")); // one character
-        assertTrue(TelegramHandle.isValidTelegramHandle("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(TelegramHandle.isValidTelegramHandle("mamamia"));
+        assertTrue(TelegramHandle.isValidTelegramHandle("12345")); // 5 digits
+        assertTrue(TelegramHandle.isValidTelegramHandle("longtelegramhandle")); // long telegram handle
     }
 
     @Test
     public void equals() {
-        TelegramHandle telegramHandle = new TelegramHandle("Valid Address");
+        TelegramHandle telegramHandle = new TelegramHandle("validtelegramhandle");
 
         // same values -> returns true
-        assertTrue(telegramHandle.equals(new TelegramHandle("Valid Address")));
+        assertTrue(telegramHandle.equals(new TelegramHandle("validtelegramhandle")));
 
         // same object -> returns true
         assertTrue(telegramHandle.equals(telegramHandle));
@@ -51,6 +53,6 @@ public class TelegramHandleTest {
         assertFalse(telegramHandle.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(telegramHandle.equals(new TelegramHandle("Other Valid Address")));
+        assertFalse(telegramHandle.equals(new TelegramHandle("othervalidtelegramHandle")));
     }
 }

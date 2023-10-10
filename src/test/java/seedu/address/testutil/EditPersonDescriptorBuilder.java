@@ -63,8 +63,8 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setTelegramHandle(new TelegramHandle(address));
+    public EditPersonDescriptorBuilder withTelegram(String telegram) {
+        descriptor.setTelegramHandle(new TelegramHandle(telegram));
         return this;
     }
 

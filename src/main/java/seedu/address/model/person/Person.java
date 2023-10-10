@@ -110,7 +110,7 @@ public class Person {
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("telegramHandle", telegramHandle)
+                .add("telegram", telegramHandle)
                 .add("tags", tags)
                 .toString();
     }
