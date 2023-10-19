@@ -5,17 +5,18 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Person's address in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidTelegramHandle(String)}
  */
-public class Address {
+public class TelegramHandle {
 
-    public static final String MESSAGE_CONSTRAINTS = "Addresses can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Telegram Handle must "
+            + "use a-z, 0-9 and underscores. Minimum length is 5 characters";
 
     /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * The telegram handle uses a-z, 0-9 and underscores.
+     * Minimum length is 5 characters.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9_]{5,32}$";
 
     public final String value;
 
@@ -24,16 +25,16 @@ public class Address {
      *
      * @param address A valid address.
      */
-    public Address(String address) {
+    public TelegramHandle(String address) {
         requireNonNull(address);
-        checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidTelegramHandle(address), MESSAGE_CONSTRAINTS);
         value = address;
     }
 
     /**
      * Returns true if a given string is a valid email.
      */
-    public static boolean isValidAddress(String test) {
+    public static boolean isValidTelegramHandle(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
@@ -49,12 +50,12 @@ public class Address {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Address)) {
+        if (!(other instanceof TelegramHandle)) {
             return false;
         }
 
-        Address otherAddress = (Address) other;
-        return value.equals(otherAddress.value);
+        TelegramHandle otherTelegramHandle = (TelegramHandle) other;
+        return value.equals(otherTelegramHandle.value);
     }
 
     @Override

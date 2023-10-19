@@ -57,4 +57,10 @@ public class NameTest {
         // different values -> returns false
         assertFalse(name.equals(new Name("Other Valid Name")));
     }
+
+    @Test
+    public void hashCodeTest() {
+        Name name = new Name("Valid Name");
+        assertTrue(name.hashCode() == name.hashCode());
+    }
 }

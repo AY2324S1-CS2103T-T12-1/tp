@@ -22,6 +22,8 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.MarkAttendanceCommand;
+import seedu.address.logic.commands.UnmarkAttendanceCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
@@ -51,6 +53,22 @@ public class AddressBookParserTest {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
                 DeleteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
         assertEquals(new DeleteCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_markAttendance() throws Exception {
+        MarkAttendanceCommand command = (MarkAttendanceCommand) parser
+                .parseCommand(MarkAttendanceCommand.COMMAND_WORD
+                + " " + INDEX_FIRST_PERSON.getOneBased() + " t/1");
+        assertEquals(new MarkAttendanceCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_unmarkAttendance() throws Exception {
+        UnmarkAttendanceCommand command = (UnmarkAttendanceCommand) parser
+                .parseCommand(UnmarkAttendanceCommand.COMMAND_WORD
+                + " " + INDEX_FIRST_PERSON.getOneBased() + " t/1");
+        assertEquals(new UnmarkAttendanceCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PERSON), command);
     }
 
     @Test

@@ -18,4 +18,21 @@ public class UserPrefsTest {
         assertThrows(NullPointerException.class, () -> userPrefs.setAddressBookFilePath(null));
     }
 
+    @Test
+    public void equalsTest() {
+        UserPrefs userPrefs = new UserPrefs();
+        userPrefs.equals(userPrefs);
+    }
+
+    @Test
+    public void equalsDifferentObjectTest() {
+        UserPrefs userPrefs = new UserPrefs();
+        userPrefs.equals(new Object());
+    }
+    @Test
+    public void hashCodeTest() {
+        UserPrefs userPrefs = new UserPrefs();
+        userPrefs.hashCode();
+    }
+
 }

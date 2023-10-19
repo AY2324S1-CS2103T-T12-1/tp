@@ -33,9 +33,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
+    private Label attendance;
+    @FXML
     private Label phone;
     @FXML
-    private Label address;
+    private Label telegramHandle;
     @FXML
     private Label email;
     @FXML
@@ -49,8 +51,10 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
+        attendance.setText(String.format("Attendance: %d/%d",
+                this.person.getWeeksPresent(), this.person.getTotalWeeks()));
         phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
+        telegramHandle.setText(person.getTelegramHandle().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

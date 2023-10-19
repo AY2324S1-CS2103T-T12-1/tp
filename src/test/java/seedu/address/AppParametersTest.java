@@ -86,4 +86,12 @@ public class AppParametersTest {
             return Collections.unmodifiableMap(namedParameters);
         }
     }
+
+    @Test
+    public void hashCodeMethod() {
+        parametersStub.namedParameters.put("config", "config.json");
+        expected.setConfigPath(Paths.get("config.json"));
+        AppParameters current = AppParameters.parse(parametersStub);
+        assertEquals(expected.hashCode(), current.hashCode());
+    }
 }

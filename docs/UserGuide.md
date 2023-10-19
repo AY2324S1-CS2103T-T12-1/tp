@@ -90,7 +90,7 @@ Format: `help`
 
 Adds a student to the student book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]… [c/COMMENT]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A student can have any number of tags (including 0)
@@ -101,8 +101,8 @@ A student can have any number of comments (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal c/On the loose as we speak!`
+* `add n/John Doe p/98765432 e/johnd@example.com a/johnTelegram, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/newTelegram p/1234567 t/criminal c/On the loose as we speak!`
 
 ### Listing all students : `list`
 <a name="list"></a>
@@ -120,9 +120,39 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]…`
 
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be 
+   `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 3 t/ c/Loves cake` Clears all existing tags of the 3rd person and replaces their tags with "Loves cake".
+
+
+### Attendance
+
+For attendance, you can enter the following commands:
+* markAtd
+* unmarkAtd
+
+### Mark Attendance : `markAtd`
+<a name="markAtd"></a>
+
+Marks the attendance of a student for that tutorial.
+
+Format: `markAtd INDEX t/TUTORIAL`
+
+Examples:
+* `markAtd 1 t/1`
+* `markAtd 2 t/12`
+
+### Unmark Attendance : `unmarkAtd`
+<a name="unmarkAtd"></a>
+
+Unmark the attendance of a student for that tutorial.
+
+Format: `unmarkAtd INDEX t/TUTORIAL`
+
+Examples:
+* `unmarkAtd 1 t/1`
+* `unmarkAtd 2 t/12`
 
 
 ### Deleting a student : `delete`
@@ -176,7 +206,7 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]… [c/COMMENT]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague c/Owes a cookie`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/jamesTele t/friend t/colleague c/Owes a cookie`
 **Clear** | `clear​`
 **Delete** | `delete INDEX​` <br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]…​` <br> e.g., `n/New Name t/`
@@ -184,3 +214,6 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]​` e.g., `find James Jake`
 **Help** | `help​`
 **List** | `list​`
+**Mark Attendance** | `markAtd INDEX t/TUTORIAL`
+**Unmark Attendance** | `unnmarkAtd INDEX t/TUTORIAL`
+
