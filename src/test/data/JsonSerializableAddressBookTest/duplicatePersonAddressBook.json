@@ -5,12 +5,14 @@
     "email": "alice@example.com",
     "telegram": "aliceTelegram",
     "attendance": "0,0,0,0,0,0,0,0,0,0,0,0",
-    "tags": [ "friends" ]
+    "tags": [ "friends" ],
+    "group": "friends"
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
     "telegram": "aliceTelegram",
-    "attendance": "0,0,0,0,0,0,0,0,0,0,0,0"
+    "attendance": "0,0,0,0,0,0,0,0,0,0,0,0",
+    "group": "friends"
   } ]
 }

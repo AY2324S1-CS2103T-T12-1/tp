@@ -147,4 +147,8 @@ public class UniquePersonList implements Iterable<Person> {
         }
         return true;
     }
+
+    public boolean hasGroup(Group group) {
+        return internalList.stream().anyMatch(person -> person.getGroup().equals(group));
+    }
 }

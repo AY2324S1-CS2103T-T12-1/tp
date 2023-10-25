@@ -76,7 +76,7 @@ public class AssignmentCommand extends Command {
                     Optional.of(studentToEdit.getEmail()),
                     Optional.of(studentToEdit.getTelegramHandle()), Optional.of(studentToEdit.getAttendance()),
                     studentToEdit.getTags(),
-                    studentToEdit.getComments(), updatedAssignments);
+                    studentToEdit.getComments(), updatedAssignments, Optional.of(studentToEdit.getGroup()));
 
             // Set the updated student in the model
             model.setPerson(studentToEdit, editedStudent);

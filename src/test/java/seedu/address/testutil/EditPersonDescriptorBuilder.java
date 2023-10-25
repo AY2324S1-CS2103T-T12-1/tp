@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.fields.Tag;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -37,6 +38,10 @@ public class EditPersonDescriptorBuilder {
         descriptor.setEmail(person.getEmail());
         descriptor.setTelegramHandle(person.getTelegramHandle());
         descriptor.setTags(person.getTags());
+        descriptor.setComments(person.getComments());
+        descriptor.setAssignments(person.getAssignments());
+        descriptor.setAttendance(person.getAttendance());
+        descriptor.setGroup(person.getGroup());
     }
 
     /**
@@ -81,7 +86,19 @@ public class EditPersonDescriptorBuilder {
         return this;
     }
 
+    /**
+     * Parses the {@code comments} into a {@code Set<Comment>} and set it to the {@code EditPersonDescriptor}
+     * @return the {@code EditPersonDescriptor} that we are building.
+     */
     public EditPersonDescriptor build() {
         return descriptor;
+    }
+
+    /**
+     * Sets the {@code comments} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withGroup(String g01) {
+        descriptor.setGroup(new Group(g01));
+        return this;
     }
 }

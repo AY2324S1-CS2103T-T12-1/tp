@@ -89,7 +89,7 @@ public class GradeCommand extends Command {
                 Optional.of(studentToGrade.getPhone()), Optional.of(studentToGrade.getEmail()),
                 Optional.of(studentToGrade.getTelegramHandle()), Optional.of(studentToGrade.getAttendance()),
                 studentToGrade.getTags(),
-                studentToGrade.getComments(), studentToGrade.getAssignments());
+                studentToGrade.getComments(), studentToGrade.getAssignments(), Optional.of(studentToGrade.getGroup()));
         model.setPerson(studentToGrade, editedStudent);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(ASSIGNMENT_GRADE_SUCCESS));

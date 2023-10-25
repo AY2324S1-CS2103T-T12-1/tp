@@ -98,6 +98,7 @@ public class PersonTest {
                 + ", attendance=" + ALICE.getAttendance() + ", tags=" + ALICE.getTags()
                 + ", comments=" + ALICE.getComments()
                 + ", assignments=" + ALICE.getAssignments()
+                + ", group=" + ALICE.getGroup()
                 + "}";
         assertEquals(expected, ALICE.toString());
     }

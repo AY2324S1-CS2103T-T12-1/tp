@@ -33,6 +33,8 @@
       <FlowPane fx:id="assignments" />
       <FlowPane fx:id="comments" />
       <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label fx:id="group" styleClass="cell_small_label" text="\$group" />
+        <Region HBox.hgrow="ALWAYS" />
         <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
         <Region HBox.hgrow="ALWAYS" />
         <Label fx:id="telegramHandle" styleClass="cell_small_label" text="\$telegramHandle" />

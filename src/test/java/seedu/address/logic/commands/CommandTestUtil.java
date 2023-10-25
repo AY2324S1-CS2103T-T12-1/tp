@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -37,6 +38,8 @@ public class CommandTestUtil {
     public static final String VALID_TELEGRAM_ALICE = "aliceTelegram";
     public static final String VALID_ATTENDANCE_AMY = "0,0,0,0,0,0,0,0,0,0,0,0";
     public static final String VALID_ATTENDANCE_BOB = "0,0,0,0,0,0,0,0,0,0,0,0";
+    public static final String VALID_GROUP_AMY = "tut33";
+    public static final String VALID_GROUP_BOB = "tut33";
 
     public static final String VALID_ASSIGNMENT_NAME_AMY = "Lab1";
     public static final String VALID_ASSIGNMENT_NAME_BOB = "Lab1";
@@ -51,6 +54,7 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String TELEGRAM_DESC_AMY = " " + PREFIX_TELEGRAM_HANDLE + VALID_TELEGRAM_AMY;
     public static final String TELEGRAM_DESC_BOB = " " + PREFIX_TELEGRAM_HANDLE + VALID_TELEGRAM_BOB;
+    public static final String GROUP_DESC_BOB = " " + PREFIX_GROUP + VALID_GROUP_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 

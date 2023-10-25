@@ -170,7 +170,7 @@ Format: `help`
 
 Adds a student to the student book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]… [group/GROUP]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A student can have any number of tags (including 0)
@@ -184,6 +184,8 @@ either to be the same
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/johnTelegram, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/newTelegram p/1234567 t/criminal c/On the loose as we speak!`
+* `add n/James`
+* `add n/James group/tut4`
 
 ### Listing all students : `list`
 <a name="list"></a>
@@ -207,13 +209,14 @@ Examples:
 
 Edits an existing student.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]…`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]… [c/COMMENT]… [a/TELEGRAM_HANDLE] [group/GROUP]`
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be
    `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 3 t/ c/Loves cake` Clears all existing tags of the 3rd person and replaces their tags with "Loves cake".
+* `edit 4 group/2` Moves the 4th person to group 2.
 
 
 ### Attendance
@@ -267,6 +270,16 @@ Format: `grade INDEX n/ASSIGNMENT_NAME g/SCORE`
 
 Examples:
 - `grade 1 n/Tutorial1 g/90`
+
+### Grouping students: `group`
+<a name="group"></a>
+
+Group students by classes.
+
+Format: `group PREV_GROUP UPDATED_GROUP`
+
+Examples:
+- `group 1 2`
 
 ### Deleting a student : `delete`
 <a name="delete"></a>
@@ -332,7 +345,7 @@ Component | Function
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/jamesTele t/friend t/colleague c/Owes a cookie`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMMENT]…​` <br> e.g., `add n/James Hop/22224444 e/jamesho@example.com a/jamesTele t/friend t/colleague c/Owes a cookie`
 **Clear** | `clear​`
 **Delete** | `delete INDEX​` <br> e.g., `delete 3`
 **Distribute Assignments** | `assign n/ASSIGNMENT_NAME m/MAX_SCORE`
@@ -344,6 +357,8 @@ Action | Format, Examples
 **List** | `list​`
 **Mark Attendance** | `markAtd INDEX t/TUTORIAL`
 **Unmark Attendance** | `unmarkAtd INDEX t/TUTORIAL`
+**group** | `group PREV_GROUP UPDATED_GROUP`
+
 
 --------------------------------------------------------------------------------------------------------------------
 <a name="glossary"></a>

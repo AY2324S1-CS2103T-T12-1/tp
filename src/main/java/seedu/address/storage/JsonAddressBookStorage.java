@@ -43,8 +43,9 @@ public class JsonAddressBookStorage implements AddressBookStorage {
      * @throws DataLoadingException if loading the data from storage failed.
      */
     public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataLoadingException {
+        logger.info("Attempting to read data from file: " + filePath);
         requireNonNull(filePath);
-
+        logger.info("success");
         Optional<JsonSerializableAddressBook> jsonAddressBook = JsonUtil.readJsonFile(
                 filePath, JsonSerializableAddressBook.class);
         if (!jsonAddressBook.isPresent()) {

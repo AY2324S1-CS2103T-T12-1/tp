@@ -1,7 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -26,11 +28,11 @@ import seedu.address.model.fields.Tag;
 import seedu.address.model.person.Assignment;
 import seedu.address.model.person.Attendance;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramHandle;
-
 
 /**
  * Edits the details of an existing person in the address book.
@@ -48,6 +50,8 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_TELEGRAM_HANDLE + "TELEGRAM HANDLE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_COMMENT + "COMMENT]...\n"
+            + "[" + PREFIX_GROUP + "GROUP]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -110,11 +114,12 @@ public class EditCommand extends Command {
         Set<Comment> updatedComments = editPersonDescriptor.getComments().orElse(personToEdit.getComments());
         Set<Assignment> updatedAssignments =
             editPersonDescriptor.getAssignments().orElse(personToEdit.getAssignments());
+        Group updatedGroup = editPersonDescriptor.getGroup().orElse(personToEdit.getGroup());
 
 
         return new Person(updatedName, Optional.of(updatedPhone), Optional.of(updatedEmail),
                 Optional.of(updatedTelegramHandle), Optional.of(updatedAttendance),
-                updatedTags, updatedComments, updatedAssignments);
+                updatedTags, updatedComments, updatedAssignments, Optional.of(updatedGroup));
 
     }
 
@@ -155,6 +160,7 @@ public class EditCommand extends Command {
         private Set<Tag> tags;
         private Set<Comment> comments;
         private Set<Assignment> assignments;
+        private Group group;
 
 
         public EditPersonDescriptor() {}
@@ -172,13 +178,14 @@ public class EditCommand extends Command {
             setTags(toCopy.tags);
             setComments(toCopy.comments);
             setAssignments(toCopy.assignments);
+            setGroup(toCopy.group);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, telegramHandle, tags, comments);
+            return CollectionUtil.isAnyNonNull(name, phone, email, telegramHandle, tags, comments, group);
         }
 
         public void setName(Name name) {
@@ -272,6 +279,23 @@ public class EditCommand extends Command {
             return (comments != null) ? Optional.of(Collections.unmodifiableSet(comments)) : Optional.empty();
         }
 
+        /**
+         * Sets {@code group} to this object's {@code group}.
+         * A defensive copy of {@code group} is used internally.
+         */
+        public void setGroup(Group group) {
+            this.group = group;
+        }
+
+        /**
+         * Returns an unmodifiable group, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code group} is null.
+         */
+        public Optional<Group> getGroup() {
+            return Optional.ofNullable(group);
+        }
+
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -291,7 +315,8 @@ public class EditCommand extends Command {
                     && Objects.equals(attendance, otherEditPersonDescriptor.attendance)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags)
                     && Objects.equals(comments, otherEditPersonDescriptor.comments)
-                    && Objects.equals(assignments, otherEditPersonDescriptor.assignments);
+                    && Objects.equals(assignments, otherEditPersonDescriptor.assignments)
+                    && Objects.equals(group, otherEditPersonDescriptor.group);
         }
 
         @Override
@@ -305,6 +330,7 @@ public class EditCommand extends Command {
                     .add("tags", tags)
                     .add("comments", comments)
                     .add("assignments", assignments)
+                    .add("group", group)
                     .toString();
         }
     }

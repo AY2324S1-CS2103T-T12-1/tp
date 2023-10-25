@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -20,6 +21,7 @@ import seedu.address.model.fields.Tag;
 import seedu.address.model.person.Assignment;
 import seedu.address.model.person.Attendance;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -39,7 +41,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_TELEGRAM_HANDLE,
-                        PREFIX_TAG, PREFIX_COMMENT);
+                        PREFIX_TAG, PREFIX_COMMENT, PREFIX_GROUP);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -65,9 +67,13 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Set<Comment> commentList = ParserUtil.parseComments(argMultimap.getAllValues(PREFIX_COMMENT));
         Set<Assignment> assignmentList = new HashSet<>();
+        Group group = Group.DEFAULT_GROUP;
+        if (argMultimap.getValue(PREFIX_GROUP).isPresent()) {
+            group = ParserUtil.parseGroup(argMultimap.getValue(PREFIX_GROUP).get());
+        }
 
         Person person = new Person(name, Optional.of(phone), Optional.of(email), Optional.of(telegram),
-                Optional.of(attendance), tagList, commentList, assignmentList);
+                Optional.of(attendance), tagList, commentList, assignmentList, Optional.of(group));
 
 
         return new AddCommand(person);

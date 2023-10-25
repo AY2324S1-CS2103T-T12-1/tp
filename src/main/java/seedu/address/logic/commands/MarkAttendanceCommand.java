@@ -63,7 +63,7 @@ public class MarkAttendanceCommand extends Command {
                 studentToEdit.getName(), Optional.of(studentToEdit.getPhone()), Optional.of(studentToEdit.getEmail()),
                 Optional.of(studentToEdit.getTelegramHandle()), Optional.of(studentToEdit.getAttendance()),
                 studentToEdit.getTags(),
-                studentToEdit.getComments(), studentToEdit.getAssignments());
+                studentToEdit.getComments(), studentToEdit.getAssignments(), Optional.of(studentToEdit.getGroup()));
         Attendance studentAtd = studentToEdit.getAttendance();
         if (studentAtd.isMarkedWeek(this.tut.getZeroBased())) {
             return new CommandResult(Messages.MESSAGE_DUPLICATE_MARKINGS);

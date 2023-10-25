@@ -29,6 +29,7 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Comment> comments = new HashSet<>();
     private final Set<Assignment> assignments = new HashSet<>();
+    private final Optional<Group> group;
 
     /**
      * Only name field must be present and not null.
@@ -40,6 +41,7 @@ public class Person {
         this.email = Optional.empty();
         this.telegramHandle = Optional.empty();
         this.attendance = Optional.empty();
+        this.group = Optional.empty();
     }
 
     /**
@@ -47,7 +49,7 @@ public class Person {
      */
     public Person(Name name, Optional<Phone> phone, Optional<Email> email, Optional<TelegramHandle> telegramHandle,
                   Optional<Attendance> attendance,
-                  Set<Tag> tags, Set<Comment> comments, Set<Assignment> assignments) {
+                  Set<Tag> tags, Set<Comment> comments, Set<Assignment> assignments, Optional<Group> group) {
         requireAllNonNull(name, phone, email, telegramHandle, tags);
         this.name = name;
         this.phone = phone;
@@ -57,6 +59,7 @@ public class Person {
         this.tags.addAll(tags);
         this.comments.addAll(comments);
         this.assignments.addAll(assignments);
+        this.group = group;
     }
 
     public Name getName() {
@@ -134,6 +137,10 @@ public class Person {
         return 0;
     }
 
+    public Group getGroup() {
+        return group.orElse(null);
+    }
+
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
@@ -171,13 +178,14 @@ public class Person {
                 && attendance.equals(otherPerson.attendance)
                 && tags.equals(otherPerson.tags)
                 && comments.equals(otherPerson.comments)
-                && assignments.equals(otherPerson.assignments);
+                && assignments.equals(otherPerson.assignments)
+                && group.equals(otherPerson.group);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, telegramHandle, attendance, tags, comments, assignments);
+        return Objects.hash(name, phone, email, telegramHandle, attendance, tags, comments, assignments, group);
     }
 
     @Override
@@ -191,6 +199,7 @@ public class Person {
                 .add("tags", tags)
                 .add("comments", comments)
                 .add("assignments", assignments)
+                .add("group", group.orElse(null))
                 .toString();
     }
 

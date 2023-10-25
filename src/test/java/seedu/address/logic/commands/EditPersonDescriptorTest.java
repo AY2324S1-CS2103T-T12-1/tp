@@ -55,6 +55,10 @@ public class EditPersonDescriptorTest {
         // different tags -> returns false
         editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different groups -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withGroup("G01").build();
+        assertFalse(DESC_AMY.equals(editedAmy));
     }
 
     @Test
@@ -68,8 +72,10 @@ public class EditPersonDescriptorTest {
                 + editPersonDescriptor.getAttendance().orElse(null) + ", tags="
                 + editPersonDescriptor.getTags().orElse(null) + ", comments="
                 + editPersonDescriptor.getComments().orElse(null) + ", assignments="
-                + editPersonDescriptor.getAssignments().orElse(null)
+                + editPersonDescriptor.getAssignments().orElse(null) + ", group="
+                + editPersonDescriptor.getGroup().orElse(null)
                 + "}";
+        System.out.println(editPersonDescriptor.toString());
         assertEquals(expected, editPersonDescriptor.toString());
     }
 }

@@ -12,11 +12,11 @@ import seedu.address.model.fields.Tag;
 import seedu.address.model.person.Assignment;
 import seedu.address.model.person.Attendance;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramHandle;
-
 
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.
@@ -30,7 +30,7 @@ public class SampleDataUtil {
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("friends"),
                 getCommentSet("Is always cheerful"),
-                getAssignmentSet("lab1")),
+                getAssignmentSet("lab1"), Optional.of(new Group("tut33"))),
 
             new Person(new Name("Bernice Yu"), Optional.of(new Phone("99272758")),
                     Optional.of(new Email("berniceyu@example.com")),
@@ -38,7 +38,7 @@ public class SampleDataUtil {
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("colleagues", "friends"),
                     getCommentSet("Loves candy"),
-                    getAssignmentSet("lab1")),
+                    getAssignmentSet("lab1"), Optional.of(new Group("tut33"))),
 
             new Person(new Name("Charlotte Oliveiro"), Optional.of(new Phone("93210283")),
                     Optional.of(new Email("charlotte@example.com")),
@@ -46,28 +46,28 @@ public class SampleDataUtil {
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("neighbours"),
                 getCommentSet("Never comes on time"),
-                    getAssignmentSet("lab1")),
+                    getAssignmentSet("lab1"), Optional.of(new Group("tut33"))),
             new Person(new Name("David Li"), Optional.of(new Phone("91031282")),
                     Optional.of(new Email("lidavid@example.com")),
                     Optional.of(new TelegramHandle("davidTelegram")),
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("family"),
                 getCommentSet("Needs constant attention"),
-                    getAssignmentSet("lab1")),
+                    getAssignmentSet("lab1"), Optional.of(new Group("tut33"))),
             new Person(new Name("Irfan Ibrahim"), Optional.of(new Phone("92492021")),
                     Optional.of(new Email("irfan@example.com")),
                     Optional.of(new TelegramHandle("irfanTelegram")),
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("classmates"),
                 getCommentSet("Pretty average"),
-                    getAssignmentSet("lab1")),
+                    getAssignmentSet("lab1"), Optional.of(new Group("tut33"))),
             new Person(new Name("Roy Balakrishnan"), Optional.of(new Phone("92624417")),
                     Optional.of(new Email("royb@example.com")),
                     Optional.of(new TelegramHandle("royTelegram")),
                 Optional.of(new Attendance("0,0,0,0,0,0,0,0,0,0,0,0")),
                 getTagSet("colleagues"),
                 getCommentSet("Happy-go-lucky attitude"),
-                getAssignmentSet("lab1")),
+                getAssignmentSet("lab1"), Optional.of(new Group("tut33")))
         };
     }
 

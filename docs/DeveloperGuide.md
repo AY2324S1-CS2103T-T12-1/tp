@@ -405,6 +405,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
+**Use case: Change the current groupings**
+
+**MSS**
+
+1. User requests to change the current groupings.
+2. User provides the new groupings.
+3. AddressBook changes the current groupings.
+
+    Use case ends.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
