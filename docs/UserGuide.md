@@ -110,6 +110,27 @@ Step 4 : Run the `npc_track`
 
 Step 5 : Start using the app
 
+---
+
+<a name="quick-tutorial"></a>
+## Quick Tutorial
+
+***Beginner's Guide to `npc_track`***
+
+Step 1 : Run the JAR file for `npc_track`. If this is your first time using, there will be no students in the list.
+
+Step 2 : Start with a few simple commands. Let's start with adding Bryan and his information into the list
+
+![Ui](images/add.gif)
+
+Step 3 : Now, we can find Bryan and contact him using Telegram
+
+![Ui](images/find.gif)
+
+Step 4 : Let's try listing back all the students using the `list` command
+
+Step 5 : Let's try using the other commands as listed in the [Features](#features) section
+
 --------------------------------------------------------------------------------------------------------------------
 
 <a name="features"></a>
@@ -155,8 +176,9 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/TELEGRAM_HANDLE [t/TAG]… [c/COMME
 A student can have any number of tags (including 0)
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A student can have any number of comments (including 0)
+<div markdown="span" class="alert alert-info">:bulb: **Tip:**
+<code>npc_track</code> does not allow adding students with both the same name and telegram handle but it allows 
+either to be the same
 </div>
 
 Examples:
@@ -221,6 +243,10 @@ Format: `unmarkAtd INDEX t/TUTORIAL`
 Examples:
 * `unmarkAtd 1 t/1`
 * `unmarkAtd 2 t/12`
+
+For grading, you can enter the following commands:
+* assign
+* grade
 
 ### Distribute assignments: `assign`
 <a name="assign"></a>
