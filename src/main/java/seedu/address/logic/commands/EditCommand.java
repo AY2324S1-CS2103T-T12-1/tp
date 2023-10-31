@@ -118,8 +118,8 @@ public class EditCommand extends Command {
 
 
         return new Person(updatedName, Optional.ofNullable(updatedPhone), Optional.ofNullable(updatedEmail),
-                Optional.ofNullable(updatedTelegramHandle), Optional.ofNullable(updatedAttendance),
-                updatedTags, updatedComments, updatedAssignments, Optional.ofNullable(updatedGroup));
+                Optional.ofNullable(updatedTelegramHandle), Optional.of(updatedAttendance),
+                updatedTags, updatedComments, updatedAssignments, Optional.of(updatedGroup));
 
     }
 
@@ -242,7 +242,7 @@ public class EditCommand extends Command {
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
         public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.ofNullable(Collections.unmodifiableSet(tags)) : Optional.empty();
+            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
         /**
@@ -259,9 +259,7 @@ public class EditCommand extends Command {
          * Returns {@code Optional#empty()} if {@code comments} is null.
          */
         public Optional<Set<Assignment>> getAssignments() {
-            return (assignments != null)
-                ? Optional.ofNullable(Collections.unmodifiableSet(assignments))
-                : Optional.empty();
+            return (assignments != null) ? Optional.of(Collections.unmodifiableSet(assignments)) : Optional.empty();
         }
 
         /**
@@ -278,7 +276,7 @@ public class EditCommand extends Command {
          * Returns {@code Optional#empty()} if {@code comments} is null.
          */
         public Optional<Set<Comment>> getComments() {
-            return (comments != null) ? Optional.ofNullable(Collections.unmodifiableSet(comments)) : Optional.empty();
+            return (comments != null) ? Optional.of(Collections.unmodifiableSet(comments)) : Optional.empty();
         }
 
         /**

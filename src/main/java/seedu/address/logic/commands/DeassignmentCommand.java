@@ -70,12 +70,11 @@ public class DeassignmentCommand extends Command {
 
             // Create a new student with the updated assignments
             Person editedStudent = new Person(
-                    studentToEdit.getName(), Optional.ofNullable(studentToEdit.getPhone()),
-                    Optional.ofNullable(studentToEdit.getEmail()),
-                    Optional.ofNullable(studentToEdit.getTelegramHandle()),
-                    Optional.ofNullable(studentToEdit.getAttendance()),
+                    studentToEdit.getName(), Optional.of(studentToEdit.getPhone()),
+                    Optional.of(studentToEdit.getEmail()),
+                    Optional.of(studentToEdit.getTelegramHandle()), Optional.of(studentToEdit.getAttendance()),
                     studentToEdit.getTags(),
-                    studentToEdit.getComments(), updatedAssignments, Optional.ofNullable(studentToEdit.getGroup()));
+                    studentToEdit.getComments(), updatedAssignments, Optional.of(studentToEdit.getGroup()));
 
             // Set the updated student in the model
             model.setPerson(studentToEdit, editedStudent);

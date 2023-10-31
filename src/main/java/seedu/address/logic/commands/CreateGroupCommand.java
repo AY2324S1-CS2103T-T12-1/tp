@@ -47,10 +47,10 @@ public class CreateGroupCommand extends Command {
         for (Person p : lastShownList) {
             Group grp = new Group(updatedGroupName);
             if (p.getGroup().equals(new Group(groupName))) {
-                Person updatedPerson = new Person(p.getName(), Optional.ofNullable(p.getPhone()),
-                        Optional.ofNullable(p.getEmail()), Optional.ofNullable(p.getTelegramHandle()),
-                        Optional.ofNullable(p.getAttendance()), p.getTags(), p.getComments(), p.getAssignments(),
-                        Optional.ofNullable(grp));
+                Person updatedPerson = new Person(p.getName(), Optional.of(p.getPhone()),
+                        Optional.of(p.getEmail()), Optional.of(p.getTelegramHandle()),
+                        Optional.of(p.getAttendance()), p.getTags(), p.getComments(), p.getAssignments(),
+                        Optional.of(grp));
                 model.setPerson(p, updatedPerson);
                 hasUpdated = true;
             }

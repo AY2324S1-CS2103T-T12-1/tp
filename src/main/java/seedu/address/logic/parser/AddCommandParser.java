@@ -74,8 +74,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Person person = new Person(name, Optional.ofNullable(phone), Optional.ofNullable(email),
-                Optional.ofNullable(telegram), Optional.ofNullable(attendance), tagList, commentList, assignmentList,
-                Optional.ofNullable(group));
+                Optional.ofNullable(telegram), Optional.of(attendance), tagList, commentList, assignmentList,
+                Optional.of(group));
 
 
         return new AddCommand(person);

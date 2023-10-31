@@ -106,16 +106,16 @@ A seasoned user (but you still need help on memorizing commands)? Drop by in [Co
 <a name="quick-start"></a>
 ## Quick start
 
-Step 1 : Ensure you have have downloaded Java version 11 or above in your computer. Steps on how to download [Java](https://www.oracle.com/java/technologies/downloads/#java11)
+Step 1 : Ensure you have downloaded Java version 11 or above in your computer. Steps on how to download [Java](https://www.oracle.com/java/technologies/downloads/#java11)
 
-Step 2 : Navigate to our ... and download the latest JAR file
+Step 2 : Navigate to our [website](https://github.com/AY2324S1-CS2103T-T12-1/tp/releases/tag/v1.3.trial) and download the latest JAR file
+![Step 2](images/download1.png)
 
-Step 3 : Save the JAR file to a folder where you want to locate the file
-- For Windows Users
-- For Mac Users
-- For Linux Users
+Step 3 : Save the [JAR](#glossary) file to a folder where you want to locate the file
 
-Step 4 : Run the `npc_track`
+Step 4 : Run the `npc_track` by double-clicking on the file that can be found on the folder where you have located 
+the [JAR](#glossary) file in step 3.
+![Step 2](images/download2.png)
 
 Step 5 : Start using the app
 
@@ -124,9 +124,13 @@ Step 5 : Start using the app
 <a name="parameter"></a>
 ## Common Parameters
 
-| Parameters | Description        | Constraints                                                                                                                                                              | Valid Examples                  | Invalid Examples
-|------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------| -------------- 
-| `n/`       | Specifies the name | Must be alphanumeric and can contain spaces                                                                                                                              | John Doe                        | $5money        
+| Parameters | Description        | Constraints                                                                                                                                                     | Valid Examples                  | Invalid Examples
+|------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------| -------------- 
+| `n/`       | Specifies the name | Must be alphanumeric and can contain spaces                                    <br/>                                                                            | John Doe                        | $5money        
+| `a/`       | Telegram handle    | Must be a-z, 0-9 or underscore. <br/> Minimum Length is 5 characters and maximum 32 characters <br/> Cannot end with an underscore <br/> Must start with a letter | harukaNaruto, loli_pop, l0l1pop | $telegram, _tele, 56thperson
+| `a/`       | Telegram handle    | Must be a-z, 0-9 or underscore. <br/> Minimum Length is 5 characters and maximum 32 characters <br/> Cannot end with an underscore <br/> Must start with a letter | harukaNaruto, loli_pop, l0l1pop | $telegram, _tele, 56thperson
+| `a/`       | Telegram handle    | Must be a-z, 0-9 or underscore. <br/> Minimum Length is 5 characters and maximum 32 characters <br/> Cannot end with an underscore <br/> Must start with a letter | harukaNaruto, loli_pop, l0l1pop | $telegram, _tele, 56thperson
+| `a/`       | Telegram handle    | Must be a-z, 0-9 or underscore. <br/> Minimum Length is 5 characters and maximum 32 characters <br/> Cannot end with an underscore <br/> Must start with a letter | harukaNaruto, loli_pop, l0l1pop | $telegram, _tele, 56thperson
 | `a/`       | Telegram handle    | Must be a-z, 0-9 or underscore. <br/> Minimum Length is 5 characters and maximum 32 characters <br/> Cannot end with an underscore <br/> Must start with a letter | harukaNaruto, loli_pop, l0l1pop | $telegram, _tele, 56thperson
 
 --------------------------------------------------------------------------------------------------------------------
@@ -177,7 +181,7 @@ Do not worry! You can refer to our [troubleshooting](#issues) guide for common p
 
 
 <a name="add"></a>
-### ***Adding a student: `add`***
+### Adding a student: `add`
 
 Want to add another student into your student contacts? Give the `add` command a try!
 
@@ -211,7 +215,7 @@ Do not worry! You can refer to our [troubleshooting](#issues) guide for common p
 | `add n/Benson`                                                                               | Adds Benson only                                                                             |
 
 <a name="list"></a>
-### ***Listing all students : `list`***
+### Listing all students : `list`
 
 Want to see all your students' details? Simply type in the one-word `list` command.
 
@@ -228,7 +232,7 @@ Do not worry! You can refer to our [troubleshooting](#issues) guide for common p
 </div>
 
 <a name="find"></a>
-### ***Finding students : `find`***
+### Finding students : `find`
 
 Finding it difficult to scroll through the whole list of students? Don't worry just find the specific student using 
 the `find` command.
@@ -249,7 +253,7 @@ Do not worry! You can refer to our [troubleshooting](#issues) guide for common p
 |-------------------|-------------------------------------|
 | `find James Jake` | Finds a student called "James Jake" |
 
-### ***Finding students by group : `findGroup`***
+### Finding students by group : `findGroup`
 
 Finding it difficult to scroll through the whole list of students? Don't worry just find the specific student using
 the `findGroup` command.
@@ -438,23 +442,66 @@ Examples:
 * `listParticipation 1` (List the participation record for the student with index 1)
 * `listParticipation 5` (List the participation record for the student with index 5)
 
-#### Distribute assignments: `assign`
+### Assignments
+
+For allocating and grading assignments , you can make the following commands:
+* assign
+* deassign
+* deassignIndiv
+* assignGroup
+* assignIndiv
+* grade
+* gradeGroup
+
 <a name="assign"></a>
+#### Distribute assignments: `assign`
 
+Keen to assign just all students with a particular assignment? You can use the `assign` command to do that!
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
 Create an assignment and assign it to all students.
+<br><br>
 
-Format: `assign n/ASSIGNMENT_NAME m/MAX_SCORE`
-`MAX_SCORE`: An integer between 1 and 1000.
+***Format***: `assign n/ASSIGNMENT_NAME m/MAX_SCORE`
+</div>
 
-Examples:
-- `assign n/Tutorial1 m/100`
+<div markdown="span" class="alert alert-primary">:bulb: **Extra Information**
+<br><br>
+- `MAX_SCORE`: An integer between 1 and 1000.
+</div>
 
-#### Deassign Assignments: `deassign`
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems. 
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
+
+| Examples                           | Purpose                            
+|------------------------------------|------------------------------------
+| `assign n/Tutorial1 m/100`  | Assigns every student in the list with an assignment called Tutorial1 and maximum score is 100.
+
 <a name="deassign"></a>
+#### Deassign Assignments: `deassign`
 
+Did you accidentally assign the wrong assignment or just want to change the assignment? You can now
+do it using the `deassign` command.
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
 Delete an assignment for all students.
+<br><br>
 
-Format: `deassign n/ASSIGNMENT_NAME`
+***Format***: `deassign n/ASSIGNMENT_NAME`
+</div>
+
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems.
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
+
+| Examples      | Purpose                                                                        |
+|---------------|--------------------------------------------------------------------------------|
+| `deassign n/Tutorial1` | Deletes the assignment called Tutorial1 for all students with that assignment. |
 
 Examples:
 - `deassign n/Tutorial1`
@@ -478,33 +525,68 @@ Do not worry! You can refer to our [troubleshooting](#issues) guide for common p
 ***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
 </div>
 
-| Examples      | Purpose                                                          |
-|---------------|------------------------------------------------------------------|
-| `deassign 1 n/Tutorial1` | Deletes the assignment called Tutorial1 for student with index 1 |
+| Examples                      | Purpose                                                          |
+|-------------------------------|------------------------------------------------------------------|
+| `deassignIndiv 1 n/Tutorial1` | Deletes the assignment called Tutorial1 for student with index 1 |
 
 
-
-### Distribute assignments to a group of students: `assignGroup`
 <a name="assignGroup"></a>
+#### Distribute assignments to a group of students: `assignGroup`
 
+Keen to assign just a group of students with a particular assignment? You can use the `assignGroup` command to do that!
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
 Create an assignment and assign it to a group of students.
+<br><br>
+***Format***: `assignGroup GROUP n/ASSIGNMENT_NAME m/MAX_SCORE`
+</div>
 
-Format: `assignGroup GROUP n/ASSIGNMENT_NAME m/MAX_SCORE`
-`MAX_SCORE`: An integer between 1 and 1000.
+<div markdown="span" class="alert alert-primary">:bulb: **Extra Information**
+<br><br>
+- `MAX_SCORE`: An integer between 1 and 1000.
+</div>
+
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems. 
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
+
+| Examples                           | Purpose                            
+|------------------------------------|------------------------------------
+| `assignGroup 1 n/Tutorial1 m/100`  | Assigns group named "1" with an assignment called Tutorial1 and maximum score is 100.
+| `assignGroup Pheonix n/Lab1 m/100` | Assigns group named "Pheonix" with an assignment called Lab1 and maximum score is 100.
 
 Examples:
 - `assignGroup 1 n/Tutorial1 m/100`
 
-### Distribute assignments to a student: `assignIndiv`
 <a name="assignIndiv"></a>
+#### Distribute assignments to a student: `assignIndiv`
 
+Keen to assign just one student with a particular assignment? You can use the `assignIndiv` command to do that!
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
 Create an assignment and assign it to a student.
+<br><br>
+***Format***: `assignIndiv INDEX n/ASSIGNMENT_NAME m/MAX_SCORE`
+</div>
 
-Format: `assignIndiv INDEX n/ASSIGNMENT_NAME m/MAX_SCORE`
-`MAX_SCORE`: An integer between 1 and 1000.
+<div markdown="span" class="alert alert-primary">:bulb: **Extra Information**
+<br><br>
+- `MAX_SCORE`: An integer between 1 and 1000.
+</div>
 
-Examples:
-- `assignIndiv 1 n/Tutorial1 m/100`
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems. 
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
+
+| Examples                          | Purpose                            
+|-----------------------------------|------------------------------------
+| `assignIndiv 1 n/Tutorial1 m/100` | Assigns student #1 with an assignment called Tutorial1 and maximum score is 100.
+| `assignIndiv 10 n/Lab1 m/100`     | Assigns student #10 with an assignment called Lab1 and maximum score is 100.
+
 
 <a name="grade"></a>
 #### Grade assignments: `grade`
@@ -565,12 +647,44 @@ Deletes the specified person from the student book.
 
 Format: `delete INDEX`
 
-### Exiting the program : `exit`
 <a name="exit"></a>
+### Exiting the program : `exit`
 
+Are you done using `npc_track` and want to terminate the program. Just type the `exit` command to do that.
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
 Exits the program.
+<br><br>
+***Format***: `exit`
+</div>
 
-Format: `exit`
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems. 
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
+
+### Clearing the Data : `clear`
+
+Do you need to remove all data in your `npc_track`. You can always do it in a very simple way using the `clear` command.
+
+<div markdown="span" class="alert alert-success">
+:pencil2: **Purpose:**
+Clear `npc_track` data.
+<br><br>
+***Format***: `clear`
+</div>
+
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
+Clearing the data will remove all information. Hence, it is recommended to take a backup of the file before clearing 
+it. Hence, since this is a irreversible command, type `yes` to confirm the action of wiping the data.
+![Clear](images/clear.png)
+</div>
+
+<div markdown="span" class="alert alert-warning">:pushpin: **Having Problems?**
+Do not worry! You can refer to our [troubleshooting](#issues) guide for common problems. 
+***Confused with some terms?*** You can refer to our [glossary](#glossary) to find out.
+</div>
 
 ### Saving the data
 
@@ -650,10 +764,11 @@ followed by a quick summary guide of the Graphical User Interface (GUI)
 <a name="glossary"></a>
 ## Glossary
 
-| Keyword       | Definition                                                     |
-|---------------|----------------------------------------------------------------|
-| **Parameter** | Details about the student that will be included in the command |
-| **Command**   | Instructions that `npc_track` will execute                     |
+| Keyword                     | Definition                                                      |
+|-----------------------------|-----------------------------------------------------------------|
+| **Parameter**               | Details about the student that will be included in the command  |
+| **Command**                 | Instructions that `npc_track` will execute                      |
+| **JAR**  | Compressed file of `npc_track` is in the form of a Java ARchive |
 
 --------------------------------------------------------------------------------------------------------------------
 
