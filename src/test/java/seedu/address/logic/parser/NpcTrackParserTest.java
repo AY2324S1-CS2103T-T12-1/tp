@@ -30,7 +30,7 @@ import seedu.address.testutil.PersonUtil;
 
 public class NpcTrackParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final NpcTrackParser parser = new NpcTrackParser();
 
     @Test
     public void parseCommand_add() throws Exception {

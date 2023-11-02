@@ -15,7 +15,7 @@ import seedu.address.model.person.Group;
 import seedu.address.model.person.Person;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the npc_track data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -27,10 +27,10 @@ public class ModelManager implements Model {
     /**
      * Initializes a ModelManager with the given npcTrack and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook npcTrack, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyNpcTrack npcTrack, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(npcTrack, userPrefs);
 
-        logger.fine("Initializing with address book: " + npcTrack + " and user prefs " + userPrefs);
+        logger.fine("Initializing with npc_track: " + npcTrack + " and user prefs " + userPrefs);
 
         this.npcTrack = new NpcTrack(npcTrack);
         this.userPrefs = new UserPrefs(userPrefs);
@@ -66,25 +66,25 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+    public Path getNpcTrackFilePath() {
+        return userPrefs.getNpcTrackFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+    public void setNpcTrackFilePath(Path npcTrackFilePath) {
+        requireNonNull(npcTrackFilePath);
+        userPrefs.setNpcTrackFilePath(npcTrackFilePath);
     }
 
     //=========== NpcTrack ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.npcTrack.resetData(addressBook);
+    public void setNpcTrack(ReadOnlyNpcTrack npcTrack) {
+        this.npcTrack.resetData(npcTrack);
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
+    public ReadOnlyNpcTrack getNpcTrack() {
         return npcTrack;
     }
 
@@ -121,7 +121,7 @@ public class ModelManager implements Model {
 
     /**
      * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedNpcTrack}
      */
     @Override
     public ObservableList<Person> getFilteredPersonList() {

@@ -12,14 +12,14 @@ import seedu.address.model.person.Group;
 import seedu.address.model.person.Person;
 
 /**
- * Creates a group in the address book.
+ * Creates a group in the npc_track.
  */
 public class CreateGroupCommand extends Command {
 
     public static final String COMMAND_WORD = "group";
     public static final String MESSAGE_USAGE = COMMAND_WORD + " PREVIOUS_GROUP_NAME UPDATED_GROUP_NAME\n"
             + "Example: " + COMMAND_WORD + " T01 T02";
-    public static final String MESSAGE_DUPLICATE_GROUP = "This group already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_GROUP = "This group already exists in the npc_track";
     public static final String MESSAGE_SUCCESS = "Group updated: %1$s";
     private static final Logger logger = Logger.getLogger(CreateGroupCommand.class.getName());
     private final String groupName;

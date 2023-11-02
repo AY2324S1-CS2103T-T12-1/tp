@@ -10,7 +10,7 @@ import seedu.address.model.ModelManager;
 public class ClearCommandTest {
 
     @Test
-    public void execute_emptyAddressBook_success() {
+    public void execute_emptyNpcTrack_success() {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
 

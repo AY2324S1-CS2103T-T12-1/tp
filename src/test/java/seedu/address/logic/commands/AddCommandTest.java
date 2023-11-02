@@ -20,7 +20,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.NpcTrack;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyNpcTrack;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Group;
 import seedu.address.model.person.Person;
@@ -110,12 +110,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public Path getAddressBookFilePath() {
+        public Path getNpcTrackFilePath() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setAddressBookFilePath(Path addressBookFilePath) {
+        public void setNpcTrackFilePath(Path npcTrackFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -125,12 +125,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setAddressBook(ReadOnlyAddressBook newData) {
+        public void setNpcTrack(ReadOnlyNpcTrack newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
+        public ReadOnlyNpcTrack getNpcTrack() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -207,7 +207,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
+        public ReadOnlyNpcTrack getNpcTrack() {
             return new NpcTrack();
         }
     }

@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ALICE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalNpcTrack;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,8 +37,8 @@ public class NpcTrackTest {
     }
 
     @Test
-    public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        NpcTrack newData = getTypicalAddressBook();
+    public void resetData_withValidReadOnlyNpcTrack_replacesData() {
+        NpcTrack newData = getTypicalNpcTrack();
         npcTrack.resetData(newData);
         assertEquals(newData, npcTrack);
     }
@@ -49,7 +49,7 @@ public class NpcTrackTest {
         Person editedAlice = new PersonBuilder(ALICE).withTelegram(VALID_TELEGRAM_ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        AddressBookStub newData = new AddressBookStub(newPersons);
+        NpcTrackStub newData = new NpcTrackStub(newPersons);
 
         assertThrows(DuplicatePersonException.class, () -> npcTrack.resetData(newData));
     }
@@ -60,18 +60,18 @@ public class NpcTrackTest {
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
+    public void hasPerson_personNotInNpcTrack_returnsFalse() {
         assertFalse(npcTrack.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
+    public void hasPerson_personInNpcTrack_returnsTrue() {
         npcTrack.addPerson(ALICE);
         assertTrue(npcTrack.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
+    public void hasPerson_personWithSameIdentityFieldsInNpcTrack_returnsTrue() {
         npcTrack.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegram(VALID_TELEGRAM_ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -90,12 +90,12 @@ public class NpcTrackTest {
     }
 
     /**
-     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+     * A stub ReadOnlyNpcTrack whose persons list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyAddressBook {
+    private static class NpcTrackStub implements ReadOnlyNpcTrack {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons) {
+        NpcTrackStub(Collection<Person> persons) {
             this.persons.setAll(persons);
         }
 

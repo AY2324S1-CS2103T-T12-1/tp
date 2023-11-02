@@ -44,7 +44,7 @@ public class DeassignmentCommand extends Command {
     /**
      * Executes the command to create a new assignment for all students in the last shown list.
      *
-     * @param model Model representing the current state of the address book.
+     * @param model Model representing the current state of the npc_track.
      * @return CommandResult representing the result of the execution.
      * @throws CommandException If there is an error during command execution.
      */

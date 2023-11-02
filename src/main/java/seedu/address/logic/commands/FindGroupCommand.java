@@ -8,7 +8,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.GroupContainsKeywordsPredicate;
 
 /**
- * Finds and lists all persons in address book whose groups contain any of the argument keywords.
+ * Finds and lists all persons in npc_track whose groups contain any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FindGroupCommand extends Command {

@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 
 /**
- * Represents a Person's group in the address book.
+ * Represents a Person's group in the npc_track.
  * Guarantees: immutable; is valid as declared in {@link #isValidGroup(String)}
  */
 public class Group {

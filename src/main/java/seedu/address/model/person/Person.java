@@ -13,7 +13,7 @@ import seedu.address.model.fields.Comment;
 import seedu.address.model.fields.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the npc_track.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {

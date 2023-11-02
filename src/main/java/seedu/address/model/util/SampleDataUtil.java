@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import seedu.address.model.NpcTrack;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyNpcTrack;
 import seedu.address.model.fields.Comment;
 import seedu.address.model.fields.Tag;
 import seedu.address.model.person.Assignment;
@@ -69,7 +69,7 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyAddressBook getSampleNpcTrack() {
+    public static ReadOnlyNpcTrack getSampleNpcTrack() {
         NpcTrack sampleAb = new NpcTrack();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);

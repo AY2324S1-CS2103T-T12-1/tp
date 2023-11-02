@@ -49,7 +49,7 @@ public class GradeCommandTest {
         gradeCommand = new GradeCommand(Index.fromOneBased(index), sampleAssignment.name, score);
 
         String expectedMessage = String.format(GradeCommand.ASSIGNMENT_GRADE_SUCCESS);
-        Model expectedModel = new ModelManager(new NpcTrack(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new NpcTrack(model.getNpcTrack()), new UserPrefs());
 
         // Check if the person's assignment grade is edited
         assertCommandSuccess(gradeCommand, model, expectedMessage, expectedModel);
@@ -67,7 +67,7 @@ public class GradeCommandTest {
 
 
         String expectedMessage = String.format(GradeCommand.ASSIGNMENT_GRADE_SUCCESS);
-        Model expectedModel = new ModelManager(new NpcTrack(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new NpcTrack(model.getNpcTrack()), new UserPrefs());
 
         // Check if the person's assignment grade is edited
         assertCommandSuccess(gradeCommand, model, expectedMessage, expectedModel);
@@ -97,11 +97,11 @@ public class GradeCommandTest {
 
     /**
      * Edit filtered list where index is larger than size of filtered list,
-     * but smaller than size of address book
+     * but smaller than size of npc_track
      */
     @Test
     public void execute_invalidPersonIndexFilteredList_failure() {
-        // ensures that outOfBoundIndex is still in bounds of address book list
+        // ensures that outOfBoundIndex is still in bounds of npc_track list
         Name name = new Name("Lab1");
         GradeCommand gradeCommand = new GradeCommand(INDEX_SECOND_PERSON, name, 10);
 

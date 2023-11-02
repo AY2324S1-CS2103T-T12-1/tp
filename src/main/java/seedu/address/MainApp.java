@@ -18,13 +18,13 @@ import seedu.address.logic.LogicManager;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.NpcTrack;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyNpcTrack;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.storage.AddressBookStorage;
-import seedu.address.storage.JsonAddressBookStorage;
+import seedu.address.storage.JsonNpcTrackStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
+import seedu.address.storage.NpcTrackStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
@@ -57,8 +57,8 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        NpcTrackStorage npcTrackStorage = new JsonNpcTrackStorage(userPrefs.getNpcTrackFilePath());
+        storage = new StorageManager(npcTrackStorage, userPrefsStorage);
 
         model = initModelManager(storage, userPrefs);
 
@@ -68,24 +68,24 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s address book and {@code userPrefs}. <br>
-     * The data from the sample address book will be used instead if {@code storage}'s address book is not found,
-     * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
+     * Returns a {@code ModelManager} with the data from {@code storage}'s npc_track and {@code userPrefs}. <br>
+     * The data from the sample npc_track will be used instead if {@code storage}'s npc_track is not found,
+     * or an empty npc_track will be used instead if errors occur when reading {@code storage}'s npc_track.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        logger.info("Using data file : " + storage.getAddressBookFilePath());
+        logger.info("Using data file : " + storage.getNpcTrackFilePath());
 
-        Optional<ReadOnlyAddressBook> addressBookOptional;
-        ReadOnlyAddressBook initialData;
+        Optional<ReadOnlyNpcTrack> npcTrackOptional;
+        ReadOnlyNpcTrack initialData;
         try {
-            addressBookOptional = storage.readAddressBook();
-            if (!addressBookOptional.isPresent()) {
-                logger.info("Creating a new data file " + storage.getAddressBookFilePath()
+            npcTrackOptional = storage.readNpcTrack();
+            if (!npcTrackOptional.isPresent()) {
+                logger.info("Creating a new data file " + storage.getNpcTrackFilePath()
                         + " populated with a sample NpcTrack.");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleNpcTrack);
+            initialData = npcTrackOptional.orElseGet(SampleDataUtil::getSampleNpcTrack);
         } catch (DataLoadingException e) {
-            logger.warning("Data file at " + storage.getAddressBookFilePath() + " could not be loaded."
+            logger.warning("Data file at " + storage.getNpcTrackFilePath() + " could not be loaded."
                     + " Will be starting with an empty NpcTrack.");
             initialData = new NpcTrack();
         }

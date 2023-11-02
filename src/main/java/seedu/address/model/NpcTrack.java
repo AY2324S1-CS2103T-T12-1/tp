@@ -14,7 +14,7 @@ import seedu.address.model.person.UniquePersonList;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
-public class NpcTrack implements ReadOnlyAddressBook {
+public class NpcTrack implements ReadOnlyNpcTrack {
 
     private final UniquePersonList persons;
 
@@ -34,7 +34,7 @@ public class NpcTrack implements ReadOnlyAddressBook {
     /**
      * Creates an NpcTrack using the Persons in the {@code toBeCopied}
      */
-    public NpcTrack(ReadOnlyAddressBook toBeCopied) {
+    public NpcTrack(ReadOnlyNpcTrack toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -52,7 +52,7 @@ public class NpcTrack implements ReadOnlyAddressBook {
     /**
      * Resets the existing data of this {@code NpcTrack} with {@code newData}.
      */
-    public void resetData(ReadOnlyAddressBook newData) {
+    public void resetData(ReadOnlyNpcTrack newData) {
         requireNonNull(newData);
 
         setPersons(newData.getPersonList());
@@ -61,7 +61,7 @@ public class NpcTrack implements ReadOnlyAddressBook {
     //// person-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the npc_track.
      */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
@@ -69,8 +69,8 @@ public class NpcTrack implements ReadOnlyAddressBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a person to the npc_track.
+     * The person must not already exist in the npc_track.
      */
     public void addPerson(Person p) {
         persons.add(p);
@@ -78,8 +78,8 @@ public class NpcTrack implements ReadOnlyAddressBook {
 
     /**
      * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the npc_track.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the npc_track.
      */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
@@ -98,7 +98,7 @@ public class NpcTrack implements ReadOnlyAddressBook {
 
     /**
      * Removes {@code key} from this {@code NpcTrack}.
-     * {@code key} must exist in the address book.
+     * {@code key} must exist in the npc_track.
      */
     public void removePerson(Person key) {
         persons.remove(key);

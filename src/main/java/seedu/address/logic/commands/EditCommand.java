@@ -35,7 +35,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramHandle;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing person in the npc_track.
  */
 public class EditCommand extends Command {
 
@@ -59,7 +59,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person and telegram handle already exists "
-            + "in the address book. Either the name or telegram handle already exist";
+            + "in the npc_track. Either the name or telegram handle already exist";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;

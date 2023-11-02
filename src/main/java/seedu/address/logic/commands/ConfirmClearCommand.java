@@ -7,18 +7,18 @@ import seedu.address.model.NpcTrack;
 
 
 /**
- * Clears the address book.
+ * Clears the npc_track.
  */
 public class ConfirmClearCommand extends Command {
     public static final String COMMAND_WORD = "yes";
-    public static final String MESSAGE_SUCCESS = "Address book has been cleared!";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears the address book. "
+    public static final String MESSAGE_SUCCESS = "npc_track has been cleared!";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears the npc_track. "
             + "Example: " + COMMAND_WORD;
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setAddressBook(new NpcTrack());
+        model.setNpcTrack(new NpcTrack());
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

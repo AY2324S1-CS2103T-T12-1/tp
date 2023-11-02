@@ -46,7 +46,7 @@ public class GradeGroupCommandTest {
         gradeGroupCommand = new GradeGroupCommand(group, sampleAssignment.name, score);
 
         String expectedMessage = String.format(GradeCommand.ASSIGNMENT_GRADE_SUCCESS);
-        Model expectedModel = new ModelManager(new NpcTrack(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new NpcTrack(model.getNpcTrack()), new UserPrefs());
 
         // Check if the person's assignment grade is edited
         assertCommandSuccess(gradeGroupCommand, model, expectedMessage, expectedModel);
@@ -64,7 +64,7 @@ public class GradeGroupCommandTest {
         GradeGroupCommand gradeGroupCommand = new GradeGroupCommand(group, testName, 90);
 
         String expectedMessage = String.format(GradeGroupCommand.ASSIGNMENT_GRADE_SUCCESS);
-        Model expectedModel = new ModelManager(new NpcTrack(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new NpcTrack(model.getNpcTrack()), new UserPrefs());
 
         // Check if the person's assignment grade is edited
         assertCommandSuccess(gradeGroupCommand, model, expectedMessage, expectedModel);
@@ -97,7 +97,7 @@ public class GradeGroupCommandTest {
 
     /**
      * Edit filtered list where index is larger than size of filtered list,
-     * but smaller than size of address book
+     * but smaller than size of npc_track
      */
     @Test
     public void execute_invalidGroupFilteredList_failure() {

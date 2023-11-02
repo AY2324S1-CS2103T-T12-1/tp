@@ -86,7 +86,7 @@ public class TypicalPersons {
     /**
      * Returns an {@code NpcTrack} with all the typical persons.
      */
-    public static NpcTrack getTypicalAddressBook() {
+    public static NpcTrack getTypicalNpcTrack() {
         NpcTrack ab = new NpcTrack();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);

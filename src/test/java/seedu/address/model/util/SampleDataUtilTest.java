@@ -18,7 +18,7 @@ public class SampleDataUtilTest {
     }
 
     @Test
-    public void getSampleAddressBook() {
+    public void getSampleNpcTrack() {
         NpcTrack addr = new NpcTrack();
         for (Person p : testerSample) {
             addr.addPerson(p);

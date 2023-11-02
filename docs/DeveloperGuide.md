@@ -144,7 +144,7 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save both npc_track data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -168,24 +168,24 @@ Each `Person` will contain `assignments` in the form of a `Set<Assignment>`. We 
 * `Assignment#setScore()` - sets the `score` of the assignment, which should be less than `maxScore`.
 * `Assignment#setMaxScore()` - sets the `maxScore` of the assignment, which should be more than `0`.
 
-We can give an `Assignment` to everybody in the address book, through the `AssignmentCommand`.
+We can give an `Assignment` to everybody in the npc_track, through the `AssignmentCommand`.
 The `AssignmentCommand` looks through all the `Person`s, and attempts to add the `Assignment` to each `Person`.
 
 #### Design considerations:
 
 **Aspect: Who to give assignment to by default**
 
-* **Alternative 1 (current choice):** Give it to everybody in the address book.
+* **Alternative 1 (current choice):** Give it to everybody in the npc_track.
   * Pros: Easy to implement.
   * Cons: If a new person is added, they will not have an assignment.
 
 * **Alternative 2:** Give it to one person, specified by an index.
   itself.
   * Pros: More control and more tailorable to each person.
-  * Cons: Troublesome and infeasible at worst for a large address book.
+  * Cons: Troublesome and infeasible at worst for a large npc_track.
 *  **Alternative 3:** Give it to a group of people, specified by a group name.
   * Pros: More control and more tailorable to each person.
-  * Cons: Troublesome and infeasible at worst for a large address book.
+  * Cons: Troublesome and infeasible at worst for a large npc_track.
 
 **Aspect: What grade to store in the assignment**
 
@@ -280,32 +280,32 @@ Below is the sequence diagram for grading students.
 
 The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+* `VersionedAddressBook#commit()` — Saves the current npc_track state in its history.
+* `VersionedAddressBook#undo()` — Restores the previous npc_track state from its history.
+* `VersionedAddressBook#redo()` — Restores a previously undone npc_track state from its history.
 
 These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial npc_track state, and the `currentStatePointer` pointing to that single npc_track state.
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete 5` command to delete the 5th person in the npc_track. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the npc_track after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted npc_track state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
 Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook
-()`, causing another modified address book state to be saved into the `addressBookStateList`.
+()`, causing another modified npc_track state to be saved into the `addressBookStateList`.
 
 ![UndoRedoState2](images/UndoRedoState2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the npc_track state will not be saved into the `addressBookStateList`.
 
 </div>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous npc_track state, and restores the npc_track to that state.
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
@@ -322,17 +322,17 @@ The following sequence diagram shows how the undo operation works:
 
 </div>
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the npc_track to that state.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest npc_track state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
 </div>
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+Step 5. The user then decides to execute the command `list`. Commands that do not modify the npc_track, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
 ![UndoRedoState4](images/UndoRedoState4.png)
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all npc_track states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 ![UndoRedoState5](images/UndoRedoState5.png)
 
@@ -344,7 +344,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Aspect: How undo & redo executes:**
 
-* **Alternative 1 (current choice):** Saves the entire address book.
+* **Alternative 1 (current choice):** Saves the entire npc_track.
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
 
@@ -597,9 +597,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. There are no persons in the address book.
+* 2a. There are no persons in the npc_track.
 
-    * 2a1. AddressBook displays a message indicating that the address book is empty.
+    * 2a1. AddressBook displays a message indicating that the npc_track is empty.
 
       Use case ends.
 

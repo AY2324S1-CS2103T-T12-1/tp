@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 /**
- * Send warning to clear the address book.
+ * Send warning to clear the npc_track.
  */
 public class ClearCommand extends Command {
 

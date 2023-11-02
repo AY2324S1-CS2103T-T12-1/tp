@@ -36,44 +36,44 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' npc_track file path.
      */
-    Path getAddressBookFilePath();
+    Path getNpcTrackFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' npc_track file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setNpcTrackFilePath(Path npcTrackFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces npc_track data with the data in {@code npcTrack}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setNpcTrack(ReadOnlyNpcTrack npcTrack);
 
     /** Returns the NpcTrack */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyNpcTrack getNpcTrack();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the npc_track.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the npc_track.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the npc_track.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the npc_track.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the npc_track.
      */
     void setPerson(Person target, Person editedPerson);
 
@@ -94,7 +94,7 @@ public interface Model {
     void updateFilteredPersonList(Predicate<Person> predicate);
 
     /**
-     * Returns true if a group with the same identity as {@code group} exists in the address book.
+     * Returns true if a group with the same identity as {@code group} exists in the npc_track.
      */
     boolean hasGroup(Group group);
 }
