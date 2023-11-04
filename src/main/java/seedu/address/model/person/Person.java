@@ -164,7 +164,7 @@ public class Person {
         }
 
         return otherPerson != null
-            && otherPerson.getName().equalsIgnoreCase(getName());
+                && otherPerson.getName().equals(getName());
     }
 
     /**

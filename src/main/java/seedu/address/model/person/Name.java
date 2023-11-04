@@ -59,26 +59,6 @@ public class Name {
         return fullName.equals(otherName.fullName);
     }
 
-    /**
-     * Returns true if this name is equal to another object (case-insensitive).
-     *
-     * @param other The object to compare this name to.
-     * @return True if the names are equal (case-insensitive), false otherwise.
-     */
-    public boolean equalsIgnoreCase(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        // instanceof handles nulls
-        if (!(other instanceof Name)) {
-            return false;
-        }
-
-        Name otherName = (Name) other;
-        return fullName.toLowerCase().equalsIgnoreCase(otherName.fullName);
-    }
-
     @Override
     public int hashCode() {
         return fullName.hashCode();
