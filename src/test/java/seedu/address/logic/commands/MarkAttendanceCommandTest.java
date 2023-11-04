@@ -60,6 +60,30 @@ public class MarkAttendanceCommandTest {
     }
 
     @Test
+    public void execute_caseInsensitive_markAttendanceSuccessful() {
+        // Create a sample person with no attendance marked
+        Person person = new PersonBuilder().build();
+        model.addPerson(person);
+        int index = 1;
+        int week = 1;
+
+        String marker = "vr";
+
+        // Create a new MarkAttendanceCommand
+        markAttendanceCommand = new MarkAttendanceCommand(Index.fromOneBased(index), Index.fromOneBased(week), marker);
+
+        // Execute the command
+        try {
+            markAttendanceCommand.execute(model);
+        } catch (CommandException e) {
+            e.printStackTrace();
+        }
+
+        // Check if the person's attendance has been marked for week 1
+        assertTrue(person.getAttendance().isMarkedWeek(0));
+    }
+
+    @Test
     public void execute_invalidIndex_throwsCommandException() {
         // Index 1 is invalid in an empty model
         int index = 1;

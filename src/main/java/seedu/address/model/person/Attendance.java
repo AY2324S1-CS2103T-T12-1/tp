@@ -106,12 +106,15 @@ public class Attendance {
     }
 
     /**
-     * Checks if the status string is a valid status.
-     * @param status The status string.
-     * @return `true` if the status is valid, else `false`.
+     * Checks if a given status is valid (case-insensitive).
+     *
+     * @param status The status to check.
+     * @return True if the status is valid, false otherwise.
      */
     public static boolean isValidStatus(String status) {
-        return status.equals("P") || status.equals("A") || status.equals("VR");
+        // Convert both the input status and valid statuses to lowercase before comparing
+        String lowercaseStatus = status.toLowerCase();
+        return lowercaseStatus.equals("p") || lowercaseStatus.equals("a") || lowercaseStatus.equals("vr");
     }
 
     /**
@@ -156,7 +159,7 @@ public class Attendance {
      * @param status The status to mark the week as.
      */
     public void markAttendance(int tutorial, String status) {
-        switch(status) {
+        switch (status.toUpperCase()) {
         case "A":
             attendanceList[tutorial] = AttendanceStatus.ABSENT;
             break;

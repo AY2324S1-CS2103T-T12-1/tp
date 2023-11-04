@@ -70,5 +70,29 @@ public class MarkAttendanceParserTest {
         // Valid input with different indices and tutorial
         assertParseSuccess(parser, "2 t/5 s/P", new MarkAttendanceCommand(Index.fromOneBased(2),
                 Index.fromOneBased(5), "P"));
+
+        // Valid input with A
+        assertParseSuccess(parser, "2 t/5 s/A", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "A"));
+
+        // Valid input with VR
+        assertParseSuccess(parser, "2 t/5 s/VR", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "VR"));
+
+        // Valid input with case sensitivity
+        assertParseSuccess(parser, "2 t/5 s/p", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "p"));
+
+        // Valid input with case sensitivity
+        assertParseSuccess(parser, "2 t/5 s/a", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "a"));
+
+        // Valid input with case sensitivity
+        assertParseSuccess(parser, "2 t/5 s/vr", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "vr"));
+
+        // Valid input with case sensitivity
+        assertParseSuccess(parser, "2 t/5 s/vR", new MarkAttendanceCommand(Index.fromOneBased(2),
+                Index.fromOneBased(5), "vR"));
     }
 }
