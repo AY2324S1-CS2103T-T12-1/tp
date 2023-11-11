@@ -6,10 +6,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.logic.commands.MarkGroupAttendanceCommand;
 import seedu.address.logic.commands.UnmarkGroupAttendanceCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Attendance;
 import seedu.address.model.person.Group;
 
 /**
@@ -24,23 +22,22 @@ public class UnmarkGroupAttendanceParser implements Parser<UnmarkGroupAttendance
     public UnmarkGroupAttendanceCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_TUTORIAL);
-        // parse group
         Group group;
+
+        if (!ParserUtil.arePrefixesPresent(argMultimap, PREFIX_TUTORIAL)) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnmarkGroupAttendanceCommand.MESSAGE_USAGE));
+        }
+
         try {
             group = ParserUtil.parseGroup(argMultimap.getPreamble());
         } catch (IllegalValueException ive) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    MarkGroupAttendanceCommand.MESSAGE_USAGE), ive);
-        }
-        // parse tutorial
-        int tutorial = 0;
-        if (argMultimap.getValue(PREFIX_TUTORIAL).isPresent()) {
-            tutorial = ParserUtil.parseTutorial(argMultimap.getValue(PREFIX_TUTORIAL).get());
+                    UnmarkGroupAttendanceCommand.MESSAGE_USAGE), ive);
         }
 
-        if (!(tutorial >= 1 && tutorial <= 12)) {
-            throw new ParseException(Attendance.TUTORIAL_ERROR_MSG);
-        }
+        int tutorial = ParserUtil.parseTutorial(argMultimap.getValue(PREFIX_TUTORIAL).get());
+
         return new UnmarkGroupAttendanceCommand(group, Index.fromOneBased(tutorial));
     }
 }
