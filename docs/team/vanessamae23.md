@@ -51,6 +51,7 @@ Given below are my contributions to the project.
 - Helped with other admin TP requirements.
 - Added test cases for my peers' code contribution.
 - Fixed bugs after the PE mock test
+- [Link to my PR reviews](https://github.com/AY2324S1-CS2103T-T12-1/tp/pulls?q=is%3Apr+reviewed-by%3AVanessamae23+)
 
 ### Review and Mentoring Contributions
 
